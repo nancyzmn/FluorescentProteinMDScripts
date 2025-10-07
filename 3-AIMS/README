@@ -1,0 +1,6 @@
+Control.dat: FMS input file. It specifies all the parameters for the Ab initio multiple spawning calculations
+misc_options: TeraChem input file. It specifies all the parameters for the electronic structure method. In this case, we're using alpha-CASSCF with QM/MM embedding
+convert_to_geomdat.py: convert a AMBER restart file (that contain both velocities and coordinates) to Geometry.dat that can be read by FMS
+run.sh: run script
+prepareAIMS.sh: automate script to prepare AIMS input files including grepping TC output to prepare Control.dat and organizing inputs and outputs of convert_to_geomdat.py
+

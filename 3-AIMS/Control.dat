@@ -1,0 +1,55 @@
+ &control
+  
+!------ Initialization -------!
+ IRestart=1             !Number of trajectories to restart from 
+ zRedoRestartES=.false.
+ InitState=2            !initial trajectory's state
+ InitialCond='NOSAMPLE'
+ iRndSeed=20883
+ IgnoreState=1
+! zDCD=.true. !Requires latest compile of FMS90.
+!------ Simulation Properties -------!
+ Model='tc'             !to identify the potential used
+ NumParticles=33472     !Number of atoms, all the atoms in the system
+ NumStates=2            !Number of electronic states
+ NumSinglets=2          !Number of electronic states
+ NumTriplets=0          !Number of electronic states
+!-------- Integration and numerics --------!
+ TimeStep=5.0          !timestep for integration
+ SimulationTime=500000.0!integration time
+ IterInv=.false.        !use cg to solve amplitude?
+ IntegType='VV'         !integrator for classical dynamics
+ ExShift=1561.00181335              !energy shift for more accurate propagation of amplitude, use S0 energy for this geometry
+ Adaptive=.false.       !adaptive timesteps?
+ RegThresh=1e-05        !regularization threshold for amplitude
+ AssumeHermitian=.true. !only compute upper half of H and S
+ ISaddle=0              !How to approximate integrals? (see FMS90.f)
+ TimeStepRejection=.true.
+ DieOnMinStep=.true.
+ CoupTimeStep=5.0
+ MinTimeStep=0.0001
+ EnergyStepCons=0.006
+ RejectAllStateFlip=.false.
+
+!-------- Spawning -------!
+ MultiSpawn=1           !number of spawns per event
+ MaxTraj=50             !max number of trajectories
+ FirstGauss=.false.     !First gaussian has perfect overlap with wfn?
+ CSThresh=15            !coupling threshold to enter spawning mode
+ CFThresh=14            !coupling threshold to leave spawning mode
+ OMax=0.6               !prevent spawning if spawned trajectory has at least
+                        !this much overlap with the electronic state
+ MaxEDiff=0.04          !(in hartrees) if energy difference is bigger than
+                        !this, coupling taken to be 0
+ PopToSpawn=0.01        !minimum population before children
+ EShellOnly=.true.      !forbid trajectories from being off-energy shell
+ SpawnCoupV=.false.
+
+!------ Output Options -----!
+ WriteEveryStep=.false.
+ NStepToPrint=8         !write output every n steps
+ zAllText=.true.        !print all optional files
+
+!------- Tunneling -------!
+ Tunnel=.false.         !Tunnel?
+/
