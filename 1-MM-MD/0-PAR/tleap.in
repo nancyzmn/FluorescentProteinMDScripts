@@ -1,0 +1,12 @@
+source leaprc.protein.ff14SB
+source leaprc.gaff
+source leaprc.water.tip3p
+source leaprc.xFPchromophores
+prot = loadpdb 2h5q_deprot.pdb
+check prot
+savepdb prot check.pdb
+addions prot Na+ 0.0
+addions prot Cl- 0.0
+solvatebox prot TIP3PBOX 20.0
+setbox prot vdw
+saveamberparm prot 2h5q.prmtop 2h5q_init0.rst7

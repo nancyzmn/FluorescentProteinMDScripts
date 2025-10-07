@@ -1,0 +1,23 @@
+&cntrl
+ntt=3,          ! Switch for temperature scaling (=3, Use Langevin dynamics with the collision frequency – gamma_ln)
+gamma_ln=5.0,   ! Collision frequency in ps-1 (5.0 ps-1)
+ntc=2,          ! Flag for SHAKE to perform bond length constraints (=2, bonds involving hydrogen are constrained)
+ntf=2,          ! Force evaluation (=2, bond interactions involving H-atoms omitted)
+ntb=2,          ! Periodicity is applied i(=2, constant pressure (default when ntp > 0)
+ntp=1,          ! Flag for constant pressure dynamics (=1 md with isotropic position scaling)
+barostat=2,     ! Flag used to control which barostat to use in order to control the pressure (=1, Berendsen; =2, Monte Carlo)
+pres0=1.0,      ! Reference pressure (1 bar)
+taup=5.0,       ! Pressure relaxation time (in ps). Recommend values between 1.0 and 5.0 ps
+cut=8.0,        ! no cutoff 
+dt=0.002,       ! The time step (psec)
+nstlim=50000000, ! Number of MD-steps to be performed
+ig=2321,        ! The seed for the pseudo-random number generator (=-1, it will be based on the current date and time, and hence will be different for every run)
+ntwr=5000000,     ! The "restrt" file will be written every ntwr steps during dynamics
+ntwx=10000,     ! The coordinates will be written to the mdcrd file every ntwx steps
+ntpr=10000,     ! Energy information will be printed in human-readable form to files "mdout" and "mdinfo" every ntpr steps.
+iwrap=1,
+ioutfm=1,       ! The format of coordinate and velocity trajectory files (=1, Binary NetCDF trajectory)
+igb=0,          ! Explicit solvent
+irest=1,        ! Flag to restart a simulation
+ntx=5,          ! Option to read the initial coordinates, velocities and box size from the inpcrd file (=5, coord. and veloc.will be read)
+/

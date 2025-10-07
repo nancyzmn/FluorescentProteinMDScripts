@@ -1,0 +1,14 @@
+Minimization:
+Energy Minimization Stage
+&cntrl
+imin=1,                 ! Perform an energy minimization
+ntb=1,                  ! Periodic Boundary Conditions (=0 non-periodic, =1 constant volume periodic boundaries)
+cut=8.0,                ! cutoff 
+ntmin = 1,              !  For NCYC cycles the steepest descent method is used then conjugate gradient is switched on
+ncyc = 100,            ! If NTMIN is 1 then the method of minimization will be switched from steepest descent to conjugate gradient after NCYC cycles
+maxcyc=1000,            ! Maximum number of minimization cycles to allow    
+igb=0,                  ! GB model (=0 explicit solvent)
+ntr=1,                  ! Turn on positional restraints
+restraintmask='@CA,C,O,N&!:WAT',  ! restraints on the backbone atoms only
+restraint_wt=10.0,      ! 10 kcal/mol.A**2 restraint force constant
+/
