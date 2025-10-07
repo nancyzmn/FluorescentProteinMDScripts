@@ -1,0 +1,60 @@
+# Log started on 07/16/2023 [mm/dd/yyyy] at 14:37:14
+# Command line arguments: -p 2h5q_mod.prmtop
+# Loaded topologies: 2h5q_mod.prmtop
+summary
+quit
+# Log started on 02/01/2024 [mm/dd/yyyy] at 06:27:12
+# Command line arguments: -p test.prmtop
+# Loaded topologies: test.prmtopchangeProtState :199 0
+outparm test_out.prmtop
+quit
+# Log started on 02/01/2024 [mm/dd/yyyy] at 06:27:42
+# Command line arguments: -p test_out.prmtop
+# Loaded topologies: test_out.prmtopprintDetails :199
+netCharges :199
+netCharge :199
+changeProtState :199 1
+outparm test_out1.prmtop
+quit
+# Log started on 02/01/2024 [mm/dd/yyyy] at 06:29:19
+# Command line arguments: -p test_out1.prmtop
+# Loaded topologies: test_out1.prmtopnetCharge :199
+printDetails :199
+changeProtState :199 2
+outparm test_out2.prmtop
+quit
+# Log started on 02/01/2024 [mm/dd/yyyy] at 06:31:46
+# Command line arguments: -p test_out2.prmtop
+# Loaded topologies: test_out2.prmtopprintDetails :199
+quit
+# Log started on 02/02/2024 [mm/dd/yyyy] at 06:08:35
+# Command line arguments: -p 2h5q_mod.prmtop
+# Loaded topologies: 2h5q_mod.prmtopsummary
+netCharge :210
+netCharge :199
+# Log started on 03/04/2024 [mm/dd/yyyy] at 11:23:25
+# Command line arguments: -p test.prmtop
+# Loaded topologies: test.prmtophelp
+printInfo :65
+printInfo :65
+changeProtState help
+changeProtState :65 2
+changeProtState :65 1
+netCharge :65
+quit
+# Log started on 03/04/2024 [mm/dd/yyyy] at 11:27:05
+# Command line arguments: -p test.prmtop
+# Loaded topologies: test.prmtopchangeProtState :143 2
+netCharge :143
+quit
+# Log started on 09/13/2024 [mm/dd/yyyy] at 16:47:50
+# Command line arguments: -p 2h5q_mod.prmtop
+# Loaded topologies: 2h5q_mod.prmtopprintDetails :GLH
+printDetails :GLU
+summary
+printDetails :GL4
+netCharge :213
+summary
+netCharge :HIP
+netCharge :ASP
+netCharge :AS4

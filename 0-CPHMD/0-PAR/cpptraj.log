@@ -1,0 +1,17 @@
+# 04/01/24 14:43:13
+# Args:  -p 2h5q_mod.prmtop
+# Loaded topologies:
+#   2h5q_mod.prmtop
+trajin 2h5q_init0.rst7
+dis d1 :199 :63 out dis_HIS204.dat
+go
+quit
+# 04/01/24 14:44:47
+# Args:  -p 2h5q_mod.prmtop
+# Loaded topologies:
+#   2h5q_mod.prmtop
+trajin 2h5q_init0.rst7
+distance d1 :199 :63 out dis_HIS204.dat
+distance d2 :22 :63 out dis_HIS22.dat
+go
+quit

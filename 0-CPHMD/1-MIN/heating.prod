@@ -1,0 +1,30 @@
+Heating step 
+&cntrl
+ntt=3,          ! Switch for temperature scaling (=3, Use Langevin dynamics with the collision frequency – gamma_ln)
+gamma_ln=5.0,   ! Collision frequency in ps-1 (5.0 ps-1)
+ntc=2,          ! Flag for SHAKE to perform bond length constraints (=2, bonds involving hydrogen are constrained)
+ntf=2,          ! Force evaluation (=2, bond interactions involving H-atoms omitted)
+ntp=0,          ! Flag for constant pressure dynamics (=0 constant volume dynamics)
+ntb=1,          ! Periodicity is applied i(=1, constant volume) 
+cut=8.0,        ! Cutoff 
+dt=0.002,       ! The time step (psec)
+saltcon=0.1,    ! Salt Concentration
+nstlim=3000000, ! Number of MD-steps to be performed
+ig=1234,                ! The seed for the pseudo-random number generator (=-1, it will be based on the current date and time, and hence will be different for every run)
+ntwr=10000,       ! The "restrt" file will be written every ntwr steps during dynamics
+ntwx=10000,       ! The coordinates will be written to the mdcrd file every ntwx steps
+ntpr=10000,       ! Energy information will be printed in human-readable form to files "mdout" and "mdinfo" every ntpr steps.
+iwrap=1,          ! Wrap molecules back into the original box
+ioutfm=1,         ! The format of coordinate and velocity trajectory files (=1, Binary NetCDF trajectory)
+igb=0,            ! GB model (=0 explicit solvent)
+ntr=1,            ! Turn on positional restraints
+restraintmask=':1-217&!@H=',           ! restraints on non-hydrogen atoms
+restraint_wt=1.0, ! 1.0 kcal/mol.A**2 restraint force constant
+nmropt=1,       ! NMR restraints and weight changes will be read
+/
+&wt
+   TYPE='TEMP0', ISTEP1=0, ISTEP2=2500000
+   VALUE1=10.00, VALUE2=300.00,
+/
+&wt TYPE='END' 
+/

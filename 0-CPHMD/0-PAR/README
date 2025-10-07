@@ -1,0 +1,4 @@
+CPHMD prmtop, cpin and initial geometry setup.
+tleap -f tleap.in
+cpinutil.py -resnames HIP GL4 AS4 LYS TYR -p 2h5q.prmtop -op 2h5q_mod.prmtop -o 2h5q.cpin
+
