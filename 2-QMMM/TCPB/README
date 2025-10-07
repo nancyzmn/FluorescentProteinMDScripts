@@ -1,0 +1,25 @@
+Example input file for running a constrained QM/MM excited state (S2) NVT calculation using TCPB. 
+Level of theory:
+QM: FOMO-CASCI (6,10)
+MM: Amber
+
+#### FILES REQUIRED ####
+mdin_qmmm.prod: input file for AMBER
+terachem.inp: input file for TeraChem
+coors.rst7: initial geometry
+mod.prmtop: parmtop file
+initialmin.sh: run script
+
+#### To run the calculation ####
+ml purge
+ml Amber #You have to load Amber first
+ml TeraChem 
+
+nohup terachem -g 5 -s 12340 >nohup_tc.out & #Using gpu 5 and port number 12340 (this number is defined in mdin_qmmm.prod)
+nohup sh initialmin.sh >nohup_amber.out & 
+
+#### Output file ####
+server_2024-05-27-15.15.50: scratch folder. You could find TC results of every step here.
+test.out: amber output file
+test.mdcrd: amber output trajectory
+Here I only ran two steps of the calculation. You would also have the restart file after the calculation finished.

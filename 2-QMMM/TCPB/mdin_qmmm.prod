@@ -1,0 +1,39 @@
+Equilibration (relaxation) mdin, no protonation changes                        
+&cntrl                                                                         
+ntt=3,          ! Switch for temperature scaling (=3, Use Langevin dynamics with the collision frequency – gamma_ln)
+gamma_ln=2.0,   ! Collision frequency in ps-1
+ntc=1,          ! Flag for SHAKE to perform bond length constraints (=1, SHAKE is turned off)
+ntf=1,          ! Force evaluation (=1, complete interaction is calculated)
+ntb=1,          ! Periodicity is applied (=1, constant volume)
+ntp=0,
+pres0=1.0,      ! Reference pressure (1 bar)                                   
+taup=5.0,       ! Pressure relaxation time (in ps). Recommend values between 1.0 and 5.0 ps
+cut=8.0,        ! no cutoff                                                    
+dt=0.0005,      ! The time step (psec)                                        
+temp0=300.0,    ! Target temperature
+tempi=300.0,    ! Initial temperature
+nstlim=4000,    ! Number of MD-steps to be performed                              
+ig=2321,        ! The seed for the pseudo-random number generator (=-1, it will be based on the current date and time, and hence will be different for every run)
+ntwr=1,         ! The "restrt" file will be written every ntwr steps during dynamics
+ntwx=1,         ! The coordinates will be written to the mdcrd file every ntwx steps
+ntpr=1,         ! Energy information will be printed in human-readable form to files "mdout" and "mdinfo" every ntpr steps.
+iwrap=1,        ! The coordinates written to the restart and trajectory files will be "wrapped" into a primary box
+ioutfm=1,       ! The format of coordinate and velocity trajectory files (=1, Binary NetCDF trajectory)
+igb=0,          ! Use the GB model CpHMD and CEMD were parametrized for        
+ntr=1,          ! Turn on positional restraints                                
+restraintmask=':454,461&!@H=', !restrain the heavy atoms of residue 454 and residue 461
+restraint_wt=100,                                                              
+ifqnt=1,                                                                       
+/                                                                              
+&qmmm                                                                          
+  qmmask = ':454,461,518',                                                         
+  qm_theory = 'terachem',                                                      
+  qmmm_int = 1, ! Electrostatic Embedding
+  qm_ewald = 0, ! QM/MM interactions should be truncated at a given cutoff, as defined by "cut" in &cntrl
+  qmcharge=  -5,                                                               
+/                                                                              
+&tc                                                                            
+  host     = 'localhost',                                                      
+  port     = 12340,                                                            
+  tcfile   = 'terachem.inp', ! Your terachem input file to specify methods                                                   
+/                                                                              

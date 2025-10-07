@@ -1,0 +1,403 @@
+
+          -------------------------------------------------------
+          Amber 22 SANDER                              2022
+          -------------------------------------------------------
+
+| Run on 05/27/2024 at 15:15:53
+
+|   Executable path: /global/software/Amber/23-CUDA-11.8.0/bin/sander
+| Working directory: /home/nancyzmn/forElisa/TCPB
+|          Hostname: Unknown
+  [-O]verwriting output
+
+File Assignments:
+|  MDIN: mdin_qmmm.prod                                                        
+| MDOUT: test.out                                                              
+|INPCRD: coors.rst7                                                            
+|  PARM: mod.prmtop                                                            
+|RESTRT: test.rst7                                                             
+|  REFC: coors.rst7                                                            
+| MDVEL: mdvel                                                                 
+| MDFRC: mdfrc                                                                 
+|  MDEN: mden                                                                  
+| MDCRD: test.mdcrd                                                            
+|MDINFO: mdinfo                                                                
+|  MTMD: mtmd                                                                  
+|INPDIP: inpdip                                                                
+|RSTDIP: rstdip                                                                
+|INPTRA: inptraj                                                               
+
+
+ Here is the input file:
+
+Equilibration (relaxation) mdin, no protonation changes                        
+&cntrl                                                                         
+ntt=3,          ! Switch for temperature scaling (=3, Use Langevin dynamics with the collision frequency – gamma_ln)
+gamma_ln=2.0,   ! Collision frequency in ps-1                                  
+ntc=1,          ! Flag for SHAKE to perform bond length constraints (=1, SHAKE is turned off)
+ntf=1,          ! Force evaluation (=1, complete interaction is calculated)    
+ntb=1,          ! Periodicity is applied (=1, constant volume)                 
+ntp=0,                                                                         
+pres0=1.0,      ! Reference pressure (1 bar)                                   
+taup=5.0,       ! Pressure relaxation time (in ps). Recommend values between 1.0 and 5.0 ps
+cut=8.0,        ! no cutoff                                                    
+dt=0.0005,      ! The time step (psec)                                         
+temp0=300.0,    ! Target temperature                                           
+tempi=300.0,    ! Initial temperature                                          
+nstlim=4000,    ! Number of MD-steps to be performed                           
+ig=2321,        ! The seed for the pseudo-random number generator (=-1, it will be based on the current date and time, and hence will be different for every run)
+ntwr=1,         ! The "restrt" file will be written every ntwr steps during dynamics
+ntwx=1,         ! The coordinates will be written to the mdcrd file every ntwx steps
+ntpr=1,         ! Energy information will be printed in human-readable form to files "mdout" and "mdinfo" every ntpr steps.
+iwrap=1,        ! The coordinates written to the restart and trajectory files will be "wrapped" into a primary box
+ioutfm=1,       ! The format of coordinate and velocity trajectory files (=1, Binary NetCDF trajectory)
+igb=0,          ! Use the GB model CpHMD and CEMD were parametrized for        
+ntr=1,          ! Turn on positional restraints                                
+restraintmask=':454,461&!@H=', !restrain the heavy atoms of residue 454 and residue 461
+restraint_wt=100,                                                              
+ifqnt=1,                                                                       
+/                                                                              
+&qmmm                                                                          
+  qmmask = ':454,461,518',                                                     
+  qm_theory = 'terachem',                                                      
+  qmmm_int = 1, ! Electrostatic Embedding                                      
+  qm_ewald = 0, ! QM/MM interactions should be truncated at a given cutoff, as defined by "cut" in &cntrl
+  qmcharge=  -5,                                                               
+/                                                                              
+&tc                                                                            
+  host     = 'localhost',                                                      
+  port     = 12340,                                                            
+  tcfile   = 'terachem.inp', ! Your terachem input file to specify methods     
+/                                                                              
+
+--------------------------------------------------------------------------------
+   1.  RESOURCE   USE: 
+--------------------------------------------------------------------------------
+
+| Flags:                                                                        
+ getting box info from netcdf restart file
+| NetCDF restart box info found
+|Largest sphere to fit in unit cell has radius =    59.064
+| New format PARM file being parsed.
+| Version =    1.000 Date = 02/17/24 Time = 00:58:07
+ NATOM  =  202683 NTYPES =      19 NBONH =  198348 MBONA  =    4476
+ NTHETH =    9088 MTHETA =    6187 NPHIH =   18398 MPHIA  =   18110
+ NHPARM =       0 NPARM  =       0 NNB   =  305080 NRES   =   65306
+ NBONA  =    4476 NTHETA =    6187 NPHIA =   18110 NUMBND =     160
+ NUMANG =     373 NPTRA  =     270 NATYP =      74 NPHB   =       0
+ IFBOX  =       1 NMXRS  =      85 IFCAP =       0 NEXTRA =       0
+ NCOPY  =       0
+
+| CMAP information read from topology file: 
+
+|     Memory Use     Allocated
+|     Real            14827191
+|     Hollerith         673357
+|     Integer          6377653
+|     Max Pairs       67561000
+|     nblistReal       2432196
+|     nblist Int       9903887
+|       Total           464979 kbytes
+
+| Note: 1-4 EEL scale factors are being read from the topology file.
+
+| Note: 1-4 VDW scale factors are being read from the topology file.
+| Duplicated    0 dihedrals
+| Duplicated    0 dihedrals
+|CMAP: Reticulating splines.
+LOADING THE QUANTUM ATOMS AS GROUPS
+     Mask :454,461,518; matches   152 atoms
+
+     BOX TYPE: RECTILINEAR
+
+--------------------------------------------------------------------------------
+   2.  CONTROL  DATA  FOR  THE  RUN
+--------------------------------------------------------------------------------
+
+default_name                                                                    
+
+General flags:
+     imin    =       0, nmropt  =       0
+
+Nature and format of input:
+     ntx     =       1, irest   =       0, ntrx    =       1
+
+Nature and format of output:
+     ntxo    =       2, ntpr    =       1, ntrx    =       1, ntwr    =       1
+     iwrap   =       1, ntwx    =       1, ntwv    =       0, ntwe    =       0
+     ioutfm  =       1, ntwprt  =       0, idecomp =       0, rbornstat=      0
+
+Potential function:
+     ntf     =       1, ntb     =       1, igb     =       0, nsnb    =      25
+     ipol    =       0, gbsa    =       0, iesp    =       0
+     dielc   =   1.00000, cut     =   8.00000, intdiel =   1.00000
+
+Frozen or restrained atoms:
+     ibelly  =       0, ntr     =       1
+     restraint_wt = 100.00000
+
+Molecular dynamics:
+     nstlim  =      4000, nscm    =         0, nrespa  =         1
+     t       =   0.00000, dt      =   0.00050, vlimit  =  20.00000
+
+Langevin dynamics temperature regulation:
+     ig      =    2321
+     temp0   = 300.00000, tempi   = 300.00000, gamma_ln=   2.00000
+
+Ewald parameters:
+     verbose =       0, ew_type =       0, nbflag  =       1, use_pme =       1
+     vdwmeth =       1, eedmeth =       1, netfrc  =       1
+     Box X =  118.129   Box Y =  136.407   Box Z =  130.630
+     Alpha =   90.000   Beta  =   90.000   Gamma =   90.000
+     NFFT1 =  120       NFFT2 =  144       NFFT3 =  135
+     Cutoff=    8.000   Tol   =0.100E-04
+     Ewald Coefficient =  0.34864
+     Interpolation order =    4
+
+QMMM options:
+             ifqnt = True       nquant =      152
+              qmgb =        0  qmcharge =       -5   adjust_q =        2
+              spin =        1     qmcut =   8.0000    qmshake =        1
+          qmmm_int =        1
+     lnk_atomic_no =        1   lnk_dis =   1.0900 lnk_method =        1
+          qm_theory = TCPB    verbosity =        0
+            qmqmdx = Analytical
+          qm_ewald =        0 qm_pme = False 
+|  INFO: Old style inpcrd file read
+
+
+    LOADING THE CONSTRAINED ATOMS AS GROUPS
+
+
+   5.  REFERENCE ATOM COORDINATES
+
+  defa
+     Mask :454,461&!@H=; matches    93 atoms
+
+--------------------------------------------------------------------------------
+   3.  ATOMIC COORDINATES AND VELOCITIES
+--------------------------------------------------------------------------------
+
+default_name                                                                    
+ begin time read from input coords =  2200.000 ps
+
+ Number of triangulated 3-point waters found:    64792
+
+     Sum of charges from parm topology file =  -0.00000106
+     Forcing neutrality...
+QMMM: ADJUSTING CHARGES
+QMMM: ----------------------------------------------------------------------
+QMMM: adjust_q = 2
+QMMM: Uniformly adjusting the charge of MM atoms to conserve total charge.
+QMMM:                             qm_charge =   -5
+QMMM: QM atom RESP charge sum (inc MM link) =   -4.357
+QMMM: Adjusting each MM atom resp charge by =    0.000
+QMMM:          Sum of MM + QM region is now =   -0.000
+QMMM: ----------------------------------------------------------------------
+|  # of SOLUTE  degrees of freedom (RNDFP):  608049.
+|  # of SOLVENT degrees of freedom (RNDFS):       0.
+|  QMSHAKE_NOSHAKEMASK_OVERLAP =      0
+|  NDFMIN =  608049.     NUM_NOSHAKE =      0     CORRECTED RNDFP =  608049.
+|  TOTAL # of degrees of freedom (RNDF) =  608049.
+ ---------------------------------------------------
+ APPROXIMATING switch and d/dx switch using CUBIC SPLINE INTERPOLATION
+ using   5000.0 points per unit in tabled values
+ TESTING RELATIVE ERROR over r ranging from 0.0 to cutoff
+| CHECK switch(x): max rel err =   0.2738E-14   at   2.422500
+| CHECK d/dx switch(x): max rel err =   0.8332E-11   at   2.782960
+ ---------------------------------------------------
+| Local SIZE OF NONBOND LIST =   40573959
+| TOTAL SIZE OF NONBOND LIST =   40573959
+
+QMMM: Link Atom Information
+QMMM: ------------------------------------------------------------------------
+QMMM:  nlink =     2                   Link Coords              Resp Charges
+QMMM:    MM(typ)  -  QM(typ)      X         Y         Z         MM        QM
+QMMM:  7575 OS     7576 p3       9.548    -4.194     1.283    -0.523     1.082
+QMMM:  7640 P      7584 os      -0.696    -6.356     8.024     1.166    -0.346
+QMMM: ------------------------------------------------------------------------
+
+  QMMM: QM Region Cartesian Coordinates (*=link atom) 
+  QMMM: QM_NO.   MM_NO.  ATOM         X         Y         Z
+  QMMM:     1     7303      P       -5.4390    5.6760    1.2081
+  QMMM:     2     7304      O       -5.8311    6.9719    1.7809
+  QMMM:     3     7305      O       -4.9699    4.8194    2.3040
+  QMMM:     4     7306      O       -4.1857    5.8347    0.1613
+  QMMM:     5     7307      C       -4.0698    6.9509   -0.7314
+  QMMM:     6     7308      H       -3.4030    7.7035   -0.2929
+  QMMM:     7     7309      H       -5.0435    7.3834   -0.9922
+  QMMM:     8     7310      C       -3.5746    6.5227   -2.1478
+  QMMM:     9     7311      H       -3.3944    7.4477   -2.7091
+  QMMM:    10     7312      O       -2.2879    5.7969   -1.9616
+  QMMM:    11     7313      C       -2.3142    4.7706   -3.0251
+  QMMM:    12     7314      H       -1.3748    4.9198   -3.5698
+  QMMM:    13     7315      N       -2.3038    3.4390   -2.3993
+  QMMM:    14     7316      C       -2.7189    3.0998   -1.0667
+  QMMM:    15     7317      H       -3.1879    3.8197   -0.4092
+  QMMM:    16     7318      N       -2.6943    1.7561   -0.9133
+  QMMM:    17     7319      C       -2.1954    1.3099   -2.0908
+  QMMM:    18     7320      C       -1.9067    0.0454   -2.5423
+  QMMM:    19     7321      N       -2.2118   -1.0848   -1.9426
+  QMMM:    20     7322      H       -1.8938   -1.9437   -2.3733
+  QMMM:    21     7323      H       -2.3848   -1.0493   -0.9461
+  QMMM:    22     7324      N       -1.4152   -0.2953   -3.7270
+  QMMM:    23     7325      C       -1.2509    0.7828   -4.5301
+  QMMM:    24     7326      H       -0.8986    0.5187   -5.5248
+  QMMM:    25     7327      N       -1.3617    2.1080   -4.1912
+  QMMM:    26     7328      C       -1.8166    2.3178   -2.9439
+  QMMM:    27     7329      C       -4.5019    5.6331   -2.9386
+  QMMM:    28     7330      H       -5.0421    4.9102   -2.3151
+  QMMM:    29     7331      C       -3.5434    4.9848   -3.9241
+  QMMM:    30     7332      H       -3.9412    4.0458   -4.3281
+  QMMM:    31     7333      O       -3.1849    5.9453   -4.9861
+  QMMM:    32     7334      H       -4.0114    6.2226   -5.4182
+  QMMM:    33     7335      O       -5.4711    6.4341   -3.5897
+  QMMM:    34     7336      H       -5.9881    5.8455   -4.1667
+  QMMM:    35     7337      N       -6.4498    0.3589   -5.7097
+  QMMM:    36     7338      C       -7.2921    0.9830   -6.4735
+  QMMM:    37     7339      O       -7.1923    2.1826   -6.5338
+  QMMM:    38     7340      N       -8.2611    0.4200   -7.1527
+  QMMM:    39     7341      C       -8.4315   -0.9350   -7.1897
+  QMMM:    40     7342      O       -9.2756   -1.5213   -7.8200
+  QMMM:    41     7343      C       -7.6268   -1.6668   -6.2175
+  QMMM:    42     7344      N       -7.7372   -3.0485   -6.0973
+  QMMM:    43     7345      C       -7.2329   -3.6743   -5.0033
+  QMMM:    44     7346      C       -7.7091   -4.9427   -4.7180
+  QMMM:    45     7347      C       -7.1290   -5.5949   -3.6068
+  QMMM:    46     7348      C       -7.6467   -7.0005   -3.3451
+  QMMM:    47     7349      C       -6.1318   -5.0144   -2.8057
+  QMMM:    48     7350      C       -5.4741   -5.7295   -1.6655
+  QMMM:    49     7351      C       -5.6885   -3.7486   -3.1831
+  QMMM:    50     7352      C       -6.2262   -2.9970   -4.2832
+  QMMM:    51     7353      N       -5.8838   -1.6820   -4.5197
+  QMMM:    52     7354      C       -6.6120   -1.0109   -5.5261
+  QMMM:    53     7355      C       -4.9687   -0.9123   -3.7156
+  QMMM:    54     7356      C       -5.5292   -0.1482   -2.4203
+  QMMM:    55     7357      O       -6.2391   -1.0504   -1.6334
+  QMMM:    56     7358      H       -6.9541   -0.5124   -1.2510
+  QMMM:    57     7359      C       -6.4904    0.9430   -2.8697
+  QMMM:    58     7360      O       -5.6564    1.9612   -3.5550
+  QMMM:    59     7361      H       -5.6856    1.6039   -4.4595
+  QMMM:    60     7362      C       -7.5538    1.6626   -1.9414
+  QMMM:    61     7363      O       -8.1566    1.0051   -0.8004
+  QMMM:    62     7364      H       -7.4278    1.0049   -0.1557
+  QMMM:    63     7365      C       -7.5029    3.2396   -1.9306
+  QMMM:    64     7366      O       -8.1933    3.9032   -0.8392
+  QMMM:    65     7367      P       -7.7430    5.3416   -0.2314
+  QMMM:    66     7368      O       -8.9837    5.5895    0.5272
+  QMMM:    67     7369      O       -7.6344    6.4796   -1.1988
+  QMMM:    68     7370      O       -6.4067    4.7839    0.3512
+  QMMM:    69     7371      H       -8.9324    0.9702   -7.6748
+  QMMM:    70     7372      H       -8.4515   -5.4401   -5.3350
+  QMMM:    71     7373      H       -6.8114   -7.7035   -3.2387
+  QMMM:    72     7374      H       -8.3028   -6.9455   -2.4678
+  QMMM:    73     7375      H       -8.1995   -7.4251   -4.1920
+  QMMM:    74     7376      H       -5.1545   -5.0852   -0.8373
+  QMMM:    75     7377      H       -6.0695   -6.4807   -1.1321
+  QMMM:    76     7378      H       -4.6281   -6.2963   -2.0730
+  QMMM:    77     7379      H       -5.0233   -3.2706   -2.4700
+  QMMM:    78     7380      H       -4.4159   -0.2182   -4.3604
+  QMMM:    79     7381      H       -4.1605   -1.5959   -3.4280
+  QMMM:    80     7382      H       -4.5934    0.1623   -1.9396
+  QMMM:    81     7383      H       -7.1839    0.4443   -3.5579
+  QMMM:    82     7384      H       -8.4426    1.5747   -2.5782
+  QMMM:    83     7385      H       -6.4861    3.6147   -2.0996
+  QMMM:    84     7386      H       -7.8964    3.3712   -2.9460
+  QMMM:    85     7387      H       -8.3153   -3.5198   -6.7783
+  QMMM:    86     7576      P        8.8111   -3.4888    0.8985
+  QMMM:    87     7577      O        9.0508   -3.7167   -0.5375
+  QMMM:    88     7578      O        9.2756   -2.1366    1.4371
+  QMMM:    89     7579      O        7.4939   -4.0941    1.5474
+  QMMM:    90     7580      C        6.3169   -3.3820    1.4569
+  QMMM:    91     7581      C        0.9506   -4.2634    6.5151
+  QMMM:    92     7582      O        4.5290   -2.3875    2.4384
+  QMMM:    93     7583      C        0.2871   -5.7013    6.1781
+  QMMM:    94     7584      O       -0.8297   -5.9065    7.0403
+  QMMM:    95     7585      C        3.5812   -4.3914    2.9842
+  QMMM:    96     7586      C        3.3675   -2.8469    3.1510
+  QMMM:    97     7587      N        2.1083   -2.3535    2.5488
+  QMMM:    98     7588      C        1.8665   -0.9706    2.7053
+  QMMM:    99     7589      O        2.3317   -0.4313    3.6976
+  QMMM:   100     7590      N        0.6446   -0.5538    2.2400
+  QMMM:   101     7591      C        0.3669   -0.9374    1.0061
+  QMMM:   102     7592      O       -0.2692   -0.0972    0.4389
+  QMMM:   103     7593      C        0.4745   -2.3905    0.5486
+  QMMM:   104     7594      C        1.2690   -3.1502    1.6461
+  QMMM:   105     7595      C       -0.3966   -4.0389    4.6490
+  QMMM:   106     7596      C       -0.1086   -5.5120    4.7189
+  QMMM:   107     7597      C       -1.5849   -2.2454    3.4325
+  QMMM:   108     7598      C        5.0251   -4.4006    3.4464
+  QMMM:   109     7599      C        5.6673   -3.1598    2.8168
+  QMMM:   110     7600      C       -2.0108   -2.5366    1.0575
+  QMMM:   111     7601      C        1.0359   -2.4206   -0.8458
+  QMMM:   112     7602      C       -1.1543   -4.4778   -0.1746
+  QMMM:   113     7603      C        2.4306   -4.3339    6.7671
+  QMMM:   114     7604      C       -0.7410   -3.3347    0.8082
+  QMMM:   115     7605      C       -0.0439   -3.7562    2.1450
+  QMMM:   116     7606      N       -0.6374   -3.2887    3.3868
+  QMMM:   117     7607      N       -2.1703   -1.9092    2.2613
+  QMMM:   118     7608      O       -1.4658   -1.2836    4.2314
+  QMMM:   119     7609      O        5.1556   -4.3026    4.9360
+  QMMM:   120     7610      O        5.0186   -6.7360    5.1827
+  QMMM:   121     7611      O        0.7614   -3.5117    5.3037
+  QMMM:   122     7612      O       -2.9061   -2.2554    0.3371
+  QMMM:   123     7613      O        5.3841   -5.4997    7.2374
+  QMMM:   124     7614      O        3.1237   -5.2814    5.8387
+  QMMM:   125     7615      P        4.7513   -5.4866    5.8977
+  QMMM:   126     7616      H        5.5862   -3.7824    0.7435
+  QMMM:   127     7617      H        6.6676   -2.4145    1.0771
+  QMMM:   128     7618      H        0.4813   -3.7981    7.3906
+  QMMM:   129     7619      H        1.0552   -6.4757    6.2948
+  QMMM:   130     7620      H        3.5575   -4.6911    1.9294
+  QMMM:   131     7621      H        2.8266   -4.9987    3.4990
+  QMMM:   132     7622      H        3.4271   -2.4493    4.1707
+  QMMM:   133     7623      H        0.3571    0.3658    2.5523
+  QMMM:   134     7624      H        1.9447   -3.8969    1.2161
+  QMMM:   135     7625      H       -1.2480   -3.7861    5.2914
+  QMMM:   136     7626      H        0.6069   -5.8403    3.9551
+  QMMM:   137     7627      H       -0.9373   -6.2064    4.5337
+  QMMM:   138     7628      H        5.5304   -5.2965    3.0654
+  QMMM:   139     7629      H        6.3215   -2.5542    3.4559
+  QMMM:   140     7630      H        0.3310   -1.9824   -1.5630
+  QMMM:   141     7631      H        1.2370   -3.4727   -1.0819
+  QMMM:   142     7632      H        1.9896   -1.8950   -0.9771
+  QMMM:   143     7633      H       -1.5196   -4.0412   -1.1122
+  QMMM:   144     7634      H       -1.9575   -5.1294    0.1906
+  QMMM:   145     7635      H       -0.3005   -5.1251   -0.4096
+  QMMM:   146     7636      H        2.9841   -3.4180    6.5265
+  QMMM:   147     7637      H        2.6295   -4.5685    7.8200
+  QMMM:   148     7638      H       -0.1443   -4.8463    2.1720
+  QMMM:   149     7639      H       -3.0652   -1.4721    2.4460
+  QMMM:   150     8317      O       -5.3091   -2.6382    0.1872
+  QMMM:   151     8318      H       -4.3524   -2.6391    0.1565
+  QMMM:   152     8319      H       -5.5566   -1.7556   -0.0883
+  QMMM:   153              *H        9.5478   -4.1940    1.2832
+  QMMM:   154              *H       -0.6961   -6.3556    8.0245
+
+--------------------------------------------------------------------------------
+  3.1 QM CALCULATION INFO
+--------------------------------------------------------------------------------
+| Reading TeraChem input file from terachem.inp
+
+ NSTEP =        0   TIME(PS) =       0.000  TEMP(K) =   299.69  PRESS =     0.0
+ Etot   =  -4300191.6593  EKtot   =    181062.1903  EPtot      =  -4481253.8496
+ BOND   =      1589.5294  ANGLE   =      4126.0476  DIHED      =      3083.7489
+ 1-4 NB =      1940.4753  1-4 EEL =     16140.5585  VDWAALS    =     90738.4772
+ EELEC  =   -751270.3407  EHBOND  =         0.0000  RESTRAINT  =         0.0000
+ TERACHEMESCF=  -3848049.4178
+ CMAP   =       447.0719
+ Ewald error estimate:   0.1883E-04
+ ------------------------------------------------------------------------------
+
+
+ NSTEP =        1   TIME(PS) =       0.001  TEMP(K) =   299.69  PRESS =     0.0
+ Etot   =  -4300192.3813  EKtot   =    181061.4683  EPtot      =  -4481253.8496
+ BOND   =      1589.5294  ANGLE   =      4126.0476  DIHED      =      3083.7489
+ 1-4 NB =      1940.4753  1-4 EEL =     16140.5585  VDWAALS    =     90738.4772
+ EELEC  =   -751270.3407  EHBOND  =         0.0000  RESTRAINT  =         0.0000
+ TERACHEMESCF=  -3848049.4178
+ CMAP   =       447.0719
+ Ewald error estimate:   0.1883E-04
+ ------------------------------------------------------------------------------
+
+ ERROR: Problem to compute energy and gradient with tc_compute_energy_gradient!

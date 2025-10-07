@@ -1,0 +1,2 @@
+```dft.in```: run QM/MM-MD directly in TeraChem. Note that TeraChem doesn't support periodic boundary calculation currently. Users should carve a sphere from the AMBER prmtop and coordinates and apply a spherical boundary for the QM/MM-MD in TeraChem. The box info in the AMBER prmtop should also be removed
+```TCPB```: this folder provides an example to run QM/MM-MD through AMBER-TeraChem interface. In this case, AMBER is the MM engine and TeraChem is used to do QM energy and gradient calculations. Note that this also doesn't support periodic boundary. 

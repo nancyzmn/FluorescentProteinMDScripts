@@ -1,0 +1,162 @@
+| Use device 5 as 0th gpu
+
+
+|       ***********************************************************
+|       *                 TeraChem v1.9-2024.04-dev               *
+|       *                   Development Version                   *
+|       *           Chemistry at the Speed of Graphics!           *
+|       ***********************************************************
+|       * This program may only be used in connection with        *
+|       * a valid license from PetaChem, LLC. Use of this program *
+|       * or results thereof indicates acceptance of all terms    *
+|       * and conditions stated in the license and that a valid   *
+|       * license agreement between the user and PetaChem, LLC    *
+|       * exists. PetaChem, LLC does not warrant the correctness  *
+|       * of results or their suitability for any purpose.        *
+|       * Please email bugs, suggestions, and comments to         *
+|       *                  help@petachem.com                      *
+|       *                                                         *
+|       ***********************************************************
+
+
+|       ***********************************************************
+|       *  Compiled by root         2024-04-22T01:15:48-07:00     *
+|       *  Supported architecture SMs: 52 61 70 80 90             *
+|       *  Build cuda_12.2.r12.2/compiler.33053471_0              *
+|       *  Git Version: 96c7643c20705caf2020dcd51ef8dbe723037c5a  *
+|       ***********************************************************
+
+
+| Job started   Mon May 27 15:15:47 2024
+| On fire-21-00 (available memory: 988533 MB)
+
+| ######################################### RUNTIME INFO ##########################################
+| terachem  -g  5  -s  12340 
+
+|  NVRM version: NVIDIA UNIX x86_64 Kernel Module  525.125.06  Tue May 30 05:11:37 UTC 2023
+|  GCC version:  
+
+|  	linux-vdso.so.1 (0x00007fff94e9d000)
+|  	libcurl.so.4 => /lib/x86_64-linux-gnu/libcurl.so.4 (0x00007fafa599c000)
+|  	libz.so.1 => /lib/x86_64-linux-gnu/libz.so.1 (0x00007fafa5980000)
+|  	libimf.so => /global/software/TeraChem/2024.04-intel-2023.2.0-CUDA-12.2.1/lib/libimf.so (0x00007fafa5596000)
+|  	libm.so.6 => /lib/x86_64-linux-gnu/libm.so.6 (0x00007fafa54ad000)
+|  	libmpi.so.12 => /global/software/TeraChem/2024.04-intel-2023.2.0-CUDA-12.2.1/lib/libmpi.so.12 (0x00007fafa3800000)
+|  	libdftbplus.so => /global/software/TeraChem/2024.04-intel-2023.2.0-CUDA-12.2.1/lib/libdftbplus.so (0x00007fafa34a8000)
+|  	libfsockets.so => /global/software/TeraChem/2024.04-intel-2023.2.0-CUDA-12.2.1/lib/libfsockets.so (0x00007fafa54a7000)
+|  	libxmlf90.so => /global/software/TeraChem/2024.04-intel-2023.2.0-CUDA-12.2.1/lib/libxmlf90.so (0x00007fafa547c000)
+|  	libthcbox.so.1 => /global/software/TeraChem/2024.04-intel-2023.2.0-CUDA-12.2.1/lib/libthcbox.so.1 (0x00007fafa168b000)
+|  	libOpenMM.so => /global/software/TeraChem/2024.04-intel-2023.2.0-CUDA-12.2.1/lib/libOpenMM.so (0x00007fafa1231000)
+|  	libnvToolsExt.so.1 => /global/software/TeraChem/2024.04-intel-2023.2.0-CUDA-12.2.1/lib/libnvToolsExt.so.1 (0x00007fafa1000000)
+|  	libgpubox.so.1 => /global/software/TeraChem/2024.04-intel-2023.2.0-CUDA-12.2.1/lib/libgpubox.so.1 (0x00007fafa546f000)
+|  	libcpubox.so.1 => /global/software/TeraChem/2024.04-intel-2023.2.0-CUDA-12.2.1/lib/libcpubox.so.1 (0x00007fafa5469000)
+|  	libtensorbox.so.1 => /global/software/TeraChem/2024.04-intel-2023.2.0-CUDA-12.2.1/lib/libtensorbox.so.1 (0x00007fafa544d000)
+|  	libiobox.so.1 => /global/software/TeraChem/2024.04-intel-2023.2.0-CUDA-12.2.1/lib/libiobox.so.1 (0x00007fafa5445000)
+|  	libintbox.so.1 => /global/software/TeraChem/2024.04-intel-2023.2.0-CUDA-12.2.1/lib/libintbox.so.1 (0x00007faf48ea9000)
+|  	libatmx2cbox.so.1 => /global/software/TeraChem/2024.04-intel-2023.2.0-CUDA-12.2.1/lib/libatmx2cbox.so.1 (0x00007fafa5384000)
+|  	libperiodicbox.so.1 => /global/software/TeraChem/2024.04-intel-2023.2.0-CUDA-12.2.1/lib/libperiodicbox.so.1 (0x00007faf419e0000)
+|  	libsqmbox.so.1 => /global/software/TeraChem/2024.04-intel-2023.2.0-CUDA-12.2.1/lib/libsqmbox.so.1 (0x00007faf41634000)
+|  	libgridbox.so.1 => /global/software/TeraChem/2024.04-intel-2023.2.0-CUDA-12.2.1/lib/libgridbox.so.1 (0x00007faf3f26a000)
+|  	libdftbox.so.1 => /global/software/TeraChem/2024.04-intel-2023.2.0-CUDA-12.2.1/lib/libdftbox.so.1 (0x00007faf3f176000)
+|  	libcibox.so.1 => /global/software/TeraChem/2024.04-intel-2023.2.0-CUDA-12.2.1/lib/libcibox.so.1 (0x00007faf3eb2a000)
+|  	libccbox.so.1 => /global/software/TeraChem/2024.04-intel-2023.2.0-CUDA-12.2.1/lib/libccbox.so.1 (0x00007faf3e699000)
+|  	libsimbox.so.1 => /global/software/TeraChem/2024.04-intel-2023.2.0-CUDA-12.2.1/lib/libsimbox.so.1 (0x00007fafa5365000)
+|  	liboptbox.so.1 => /global/software/TeraChem/2024.04-intel-2023.2.0-CUDA-12.2.1/lib/liboptbox.so.1 (0x00007fafa5330000)
+|  	libprotobuf.so.25 => /global/software/TeraChem/2024.04-intel-2023.2.0-CUDA-12.2.1/lib/libprotobuf.so.25 (0x00007faf3e3c6000)
+|  	libcommbox.so.1 => /global/software/TeraChem/2024.04-intel-2023.2.0-CUDA-12.2.1/lib/libcommbox.so.1 (0x00007faf3e365000)
+|  	libssl.so.3 => /lib/x86_64-linux-gnu/libssl.so.3 (0x00007faf3e2c1000)
+|  	libcrypto.so.3 => /lib/x86_64-linux-gnu/libcrypto.so.3 (0x00007faf3de7f000)
+|  	libcuda.so.1 => /lib/x86_64-linux-gnu/libcuda.so.1 (0x00007faf3c19e000)
+|  	libcudart.so.12 => /global/software/TeraChem/2024.04-intel-2023.2.0-CUDA-12.2.1/lib/libcudart.so.12 (0x00007faf3be00000)
+|  	libcublas.so.12 => /global/software/TeraChem/2024.04-intel-2023.2.0-CUDA-12.2.1/lib/libcublas.so.12 (0x00007faf35600000)
+|  	libcufft.so.11 => /global/software/TeraChem/2024.04-intel-2023.2.0-CUDA-12.2.1/lib/libcufft.so.11 (0x00007faf2a800000)
+|  	libcusparse.so.12 => /global/software/TeraChem/2024.04-intel-2023.2.0-CUDA-12.2.1/lib/libcusparse.so.12 (0x00007faf1aa00000)
+|  	libcusolver.so.11 => /global/software/TeraChem/2024.04-intel-2023.2.0-CUDA-12.2.1/lib/libcusolver.so.11 (0x00007faf13800000)
+|  	libcublasLt.so.12 => /global/software/TeraChem/2024.04-intel-2023.2.0-CUDA-12.2.1/lib/libcublasLt.so.12 (0x00007faef1000000)
+|  	libsvml.so => /global/software/TeraChem/2024.04-intel-2023.2.0-CUDA-12.2.1/lib/libsvml.so (0x00007faeef9d1000)
+|  	libirng.so => /global/software/TeraChem/2024.04-intel-2023.2.0-CUDA-12.2.1/lib/libirng.so (0x00007faeef600000)
+|  	libstdc++.so.6 => /lib/x86_64-linux-gnu/libstdc++.so.6 (0x00007faeef3d4000)
+|  	libiomp5.so => /global/software/TeraChem/2024.04-intel-2023.2.0-CUDA-12.2.1/lib/libiomp5.so (0x00007faeeee00000)
+|  	libcilkrts.so.5 => /global/software/TeraChem/2024.04-intel-2023.2.0-CUDA-12.2.1/lib/libcilkrts.so.5 (0x00007faeeea00000)
+|  	libgcc_s.so.1 => /lib/x86_64-linux-gnu/libgcc_s.so.1 (0x00007fafa530a000)
+|  	libintlc.so.5 => /global/software/TeraChem/2024.04-intel-2023.2.0-CUDA-12.2.1/lib/libintlc.so.5 (0x00007faf3c126000)
+|  	libc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x00007faeee7d8000)
+|  	/lib64/ld-linux-x86-64.so.2 (0x00007fafa5a51000)
+|  	libnghttp2.so.14 => /lib/x86_64-linux-gnu/libnghttp2.so.14 (0x00007fafa52de000)
+|  	libidn2.so.0 => /lib/x86_64-linux-gnu/libidn2.so.0 (0x00007fafa1210000)
+|  	librtmp.so.1 => /lib/x86_64-linux-gnu/librtmp.so.1 (0x00007faf3c107000)
+|  	libssh.so.4 => /lib/x86_64-linux-gnu/libssh.so.4 (0x00007faf35593000)
+|  	libpsl.so.5 => /lib/x86_64-linux-gnu/libpsl.so.5 (0x00007faf3c0f3000)
+|  	libgssapi_krb5.so.2 => /lib/x86_64-linux-gnu/libgssapi_krb5.so.2 (0x00007faf3553f000)
+|  	libldap-2.5.so.0 => /lib/x86_64-linux-gnu/libldap-2.5.so.0 (0x00007faf2a7a1000)
+|  	liblber-2.5.so.0 => /lib/x86_64-linux-gnu/liblber-2.5.so.0 (0x00007faf3c0e2000)
+|  	libzstd.so.1 => /lib/x86_64-linux-gnu/libzstd.so.1 (0x00007faf1a931000)
+|  	libbrotlidec.so.1 => /lib/x86_64-linux-gnu/libbrotlidec.so.1 (0x00007faf3c0d4000)
+|  	librt.so.1 => /lib/x86_64-linux-gnu/librt.so.1 (0x00007fafa52d5000)
+|  	libdl.so.2 => /lib/x86_64-linux-gnu/libdl.so.2 (0x00007fafa120b000)
+|  	libifport.so.5 => /global/software/TeraChem/2024.04-intel-2023.2.0-CUDA-12.2.1/lib/libifport.so.5 (0x00007faf3c0aa000)
+|  	libifcoremt.so.5 => /global/software/TeraChem/2024.04-intel-2023.2.0-CUDA-12.2.1/lib/libifcoremt.so.5 (0x00007faeef25a000)
+|  	libpthread.so.0 => /lib/x86_64-linux-gnu/libpthread.so.0 (0x00007faf3bdfb000)
+|  	libnvJitLink.so.12 => /global/software/TeraChem/2024.04-intel-2023.2.0-CUDA-12.2.1/lib/libnvJitLink.so.12 (0x00007faeeb600000)
+|  	libunistring.so.2 => /lib/x86_64-linux-gnu/libunistring.so.2 (0x00007faeeec56000)
+|  	libgnutls.so.30 => /lib/x86_64-linux-gnu/libgnutls.so.30 (0x00007faeeb415000)
+|  	libhogweed.so.6 => /lib/x86_64-linux-gnu/libhogweed.so.6 (0x00007faf1a8e9000)
+|  	libnettle.so.8 => /lib/x86_64-linux-gnu/libnettle.so.8 (0x00007faf1a8a3000)
+|  	libgmp.so.10 => /lib/x86_64-linux-gnu/libgmp.so.10 (0x00007faf1377e000)
+|  	libkrb5.so.3 => /lib/x86_64-linux-gnu/libkrb5.so.3 (0x00007faeeb34a000)
+|  	libk5crypto.so.3 => /lib/x86_64-linux-gnu/libk5crypto.so.3 (0x00007faf3bdcc000)
+|  	libcom_err.so.2 => /lib/x86_64-linux-gnu/libcom_err.so.2 (0x00007faf3bdc6000)
+|  	libkrb5support.so.0 => /lib/x86_64-linux-gnu/libkrb5support.so.0 (0x00007faf35531000)
+|  	libsasl2.so.2 => /lib/x86_64-linux-gnu/libsasl2.so.2 (0x00007faf1a888000)
+|  	libbrotlicommon.so.1 => /lib/x86_64-linux-gnu/libbrotlicommon.so.1 (0x00007faf1a865000)
+|  	libp11-kit.so.0 => /lib/x86_64-linux-gnu/libp11-kit.so.0 (0x00007faeeb20f000)
+|  	libtasn1.so.6 => /lib/x86_64-linux-gnu/libtasn1.so.6 (0x00007faf1a84d000)
+|  	libkeyutils.so.1 => /lib/x86_64-linux-gnu/libkeyutils.so.1 (0x00007faf1a846000)
+|  	libresolv.so.2 => /lib/x86_64-linux-gnu/libresolv.so.2 (0x00007faf1376a000)
+|  	libffi.so.8 => /lib/x86_64-linux-gnu/libffi.so.8 (0x00007faf1375d000)
+| #################################################################################################
+
+| Checking Amazon Cloud instance ID...   Not found
+| Cannot find license.dat file /global/software/TeraChem/2024.04-intel-2023.2.0-CUDA-12.2.1/license.dat
+
+
+| TRYING THE NETWORK LICENSE...
+| Connecting to license server '54.208.252.40' port '8877'...
+| Connected!
+| Checking your license...
+
+| **************************************************************
+|  Greetings, Martinez Group! You have 1000 licenses in total
+|  IN USE: 19
+|  AVAILABLE: 981
+| **************************************************************
+
+
+| using 1 out of 8 CUDA devices
+|   Device 0: Tesla V100-SXM2-32GB-LS, 32500MB, CC 7.0 -- IDLE
+|   Device 1: Tesla V100-SXM2-32GB-LS, 32500MB, CC 7.0 -- IDLE
+|   Device 2: Tesla V100-SXM2-32GB-LS, 32500MB, CC 7.0 -- IDLE
+|   Device 3: Tesla V100-SXM2-32GB-LS, 32500MB, CC 7.0 -- IDLE
+|   Device 4: Tesla V100-SXM2-32GB-LS, 32500MB, CC 7.0 -- IDLE
+|   Device 5: Tesla V100-SXM2-32GB-LS, 32500MB, CC 7.0 -- CPU THREAD 0
+|   Device 6: Tesla V100-SXM2-32GB-LS, 32500MB, CC 7.0 -- IDLE
+|   Device 7: Tesla V100-SXM2-32GB-LS, 32500MB, CC 7.0 -- IDLE
+| -------------------------------------------------------------------
+| CPU Memory Available: 128994.25 MegaWords 
+| GPU Memory Available: 3806.61 MegaWords 
+| Maximum recommended basis set size: 23500 basis functions
+|  (limited by GPU memory)
+| -------------------------------------------------------------------
+| Initialize GPUBox with 128 MW of memory
+CommBoxLoop: Server started, listening for jobs...
+Accepted job 1
+CommBox: Sent job 1
+Finished job 1
+Accepted job 2
+Data from last job freed
+
+CommBox: Sent job 2
+Finished job 2
+Accepted job 3
+Data from last job freed
+

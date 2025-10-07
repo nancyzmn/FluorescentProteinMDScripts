@@ -1,0 +1,35 @@
+#Inputs
+prmtop                   	2h5q_sphere_nobox.prmtop
+coordinates              	coors.rst7
+qmindices                	3RES.qm  
+charge                          0
+spinmult                        1
+
+#Runtype
+nstep           4000 #This is 2 ps with a 1fs timestep
+min_maxallowedstep 5.0 
+timestep        0.5 #in fs
+run             md 
+orbitalswrtfrq 1000 #Modify this if you want realtime orbitals
+thermostat     langevin
+t0             300.0
+lnvtime        333.0
+tinit          300.0
+
+#Method
+basis                    	6-31gss
+method                   	wpbe
+rc_w                      0.22
+mdbc                      spherical
+md_k1                     10.0
+md_density                1.0
+
+#Convergence
+threall                  	1e-14
+convthre                 	1e-07
+precision                	mixed
+maxit                    	200
+
+#Computer
+gpus 1
+gpumem 256
